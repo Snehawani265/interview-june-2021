@@ -1,9 +1,34 @@
-package exam;
+class ConvertToBinary {
 
-public class ConvertToBinary {
 
-  public String toBinary(final int n) {
-    //TODO write your code here to achieve the desired result as explained in Readme file for this problem.
-    return "";
-  }
+    // Recursive function to convert n
+    // to its binary equivalent
+    static void decimalToBinary(int n) {
+        try {
+            // Base case
+            if (n == 0) {
+                System.out.print("0");
+                return;
+            }
+            //     if(n<0)
+            //     {
+            // System.out.print("number is negative");
+            //         return;
+            //     }
+
+
+            // Recursive call
+            decimalToBinary(n / 2);
+            System.out.print(n % 2);
+        }
+    } catch (Exception e) {
+        System.out.println("Exception : " +  e);
+    }
+
+    // Driver code
+    public static void main(String[] args) {
+        int n = 13;
+
+        decimalToBinary(n);
+    }
 }
