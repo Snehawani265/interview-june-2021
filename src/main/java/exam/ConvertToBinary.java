@@ -1,34 +1,26 @@
+import java.util.*;
+import java.util.Scanner.*;
 class ConvertToBinary {
-
-
-    // Recursive function to convert n
-    // to its binary equivalent
-    static void decimalToBinary(int n) {
+    static int decimalToBinary(int n) {
         try {
-            // Base case
-            if (n == 0) {
+            if (n < 0) {
+                throw new IllegalArgumentException("value must be non-negative");
+            } else if (n == 0) {
+                System.out.println("NUMBER :" + n);
                 System.out.print("0");
-                return;
+                return 0;
             }
-            //     if(n<0)
-            //     {
-            // System.out.print("number is negative");
-            //         return;
-            //     }
-
-
-            // Recursive call
             decimalToBinary(n / 2);
             System.out.print(n % 2);
-        }
-    } catch (Exception e) {
-        System.out.println("Exception : " +  e);
+        } catch (IllegalArgumentException i) {
+            System.out.println("Exception : " + i);
+        } return 0;
     }
-
-    // Driver code
     public static void main(String[] args) {
-        int n = 13;
-
+        int n;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a  number: ");
+        n = sc.nextInt();
         decimalToBinary(n);
     }
 }
